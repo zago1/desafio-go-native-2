@@ -23,19 +23,19 @@ class Repository extends Component {
 
   render() {
     return (
-      <View>
-        <TouchableOpacity onPress={() => { }}>
+      <TouchableOpacity onPress={() => { }} style={styles.container}>
+        <View style={styles.containerInfo}>
           <Image
             style={styles.image}
-            src={{ uri: '' }}
+            source={{ uri: 'https://avatars2.githubusercontent.com/u/29647600?v=4' }}
           />
-          <View>
-            <Text>Repository</Text>
-            <Text>Company</Text>
+          <View style={styles.containerRepository}>
+            <Text style={styles.repository}>Repository</Text>
+            <Text style={styles.company}>Company</Text>
           </View>
-          <Icon name="arrow" size="small" color="#666" />
-        </TouchableOpacity>
-      </View>
+        </View>
+        <Icon name="angle-right" size={20} color="#999" />
+      </TouchableOpacity>
     );
   }
 }

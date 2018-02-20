@@ -1,5 +1,6 @@
 export default {
-  big: 24,
+  bigger: 24,
+  big: 16,
   regular: 14,
   small: 12,
 };

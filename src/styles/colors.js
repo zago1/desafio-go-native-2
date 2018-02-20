@@ -8,8 +8,8 @@ export default {
 
   error: '#FF5A5A',
 
-  primary: '#6F6F6F',
-  secundary: '#DDDDDD',
+  primary: '#333333',
+  secundary: '#999999',
 
-  background: '#FBFAFF',
+  background: '#EEEEEE',
 };
