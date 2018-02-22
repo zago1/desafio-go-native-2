@@ -1,7 +1,11 @@
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import React from 'react';
+import { StackNavigator, TabNavigator, TabBarTop } from 'react-navigation';
 
 import Repositories from 'pages/Repositories';
-import { Todas, Abertas, Fechadas } from 'pages/Issues';
+import RepositoryHeader from 'pages/Repositories/Components/RepositoryHeader';
+import { Todas, Abertas, Fechadas, styles, IssueHeader } from 'pages/Issues';
+
+import { colors } from 'styles';
 
 const Routes = StackNavigator({
   Repositories: {
@@ -18,10 +22,19 @@ const Routes = StackNavigator({
       Fechadas: {
         screen: Fechadas,
       },
+    }, {
+      tabBarOptions: {
+        style: styles.tabBar,
+        labelStyle: styles.tabLabel,
+        indicatorStyle: styles.indicator,
+      },
     }),
   },
 }, {
   initialRouteName: 'Repositories',
+  navigationOptions: {
+    header: props => (props.scene.route.routeName === 'Repositories' ? <RepositoryHeader {...props} /> : <IssueHeader {...props} />),
+  },
 });
 
 export default Routes;

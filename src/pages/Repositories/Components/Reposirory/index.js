@@ -8,22 +8,29 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 
 
 class Repository extends Component {
-  static propTypes = {};
+  static propTypes = {
+    onClick: PropTypes.func,
+    item: PropTypes.shape({}),
+  };
 
-  static defaultProps = {};
+  static defaultProps = {
+    onClick: () => {},
+    item: {},
+  };
 
   state = {};
 
-
   render() {
+    const { onClick, item } = this.props;
+
     return (
-      <TouchableOpacity onPress={() => { }} style={styles.container}>
+      <TouchableOpacity onPress={() => onClick(item.text)} style={styles.container}>
         <View style={styles.containerInfo}>
           <Image
             style={styles.image}
