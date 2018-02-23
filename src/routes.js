@@ -1,11 +1,9 @@
 import React from 'react';
-import { StackNavigator, TabNavigator, TabBarTop } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import Repositories from 'pages/Repositories';
 import RepositoryHeader from 'pages/Repositories/Components/RepositoryHeader';
 import { Todas, Abertas, Fechadas, styles, IssueHeader } from 'pages/Issues';
-
-import { colors } from 'styles';
 
 const Routes = StackNavigator({
   Repositories: {

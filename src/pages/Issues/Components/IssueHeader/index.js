@@ -27,18 +27,17 @@ class IssueHeader extends Component {
   static defaultProps = {};
 
   state = {
-    repository: '',
+    repository: 'Teste',
   };
 
   componentWillMount() {
-    const repository = this.getRepository();
-
-    this.setState({ repository });
+    this.getRepository()
+      .then(repository => this.setState({ repository }));
   }
 
   getRepository = async () => {
-    const item = await AsyncStorage.getItem('@desafio_gonative2:repository');
-    return JSON.parse(item);
+    const repository = await AsyncStorage.getItem('@desafio_gonative2:repository');
+    return repository;
   }
 
   backward = () => {
@@ -55,13 +54,14 @@ class IssueHeader extends Component {
   }
 
   render() {
+    const { repository } = this.state;
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.arrowContainer} onPress={this.backward}>
-          <Icon name="angle-left" size={24} color={colors.primary} />
+          <Icon name="angle-left" size={20} color={colors.primary} />
         </TouchableOpacity>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{this.state.repository.text}</Text>
+          <Text style={styles.title}>{repository}</Text>
         </View>
         <View style={styles.assistentContainer} />
       </View>

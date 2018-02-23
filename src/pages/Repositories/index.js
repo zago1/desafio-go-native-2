@@ -23,9 +23,10 @@ class Repositories extends Component {
 
   state = {};
 
-  handleClick = async (item) => {
+  handleClick = async (repository) => {
     try {
-      await AsyncStorage.setItem('@desafio_gonative2:repository', JSON.stringify(item));
+      console.log('Item: ', repository);
+      await AsyncStorage.setItem('@desafio_gonative2:repository', repository);
       const { navigate } = this.props.navigation;
 
       navigate('Issues');
@@ -37,7 +38,7 @@ class Repositories extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Repository onClick={() => { this.handleClick({ text: 'Teste' }) }} />
+        <Repository onClick={() => { this.handleClick('Teste'); }} />
       </View>
     );
   }
